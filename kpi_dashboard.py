@@ -370,6 +370,7 @@ def main():
         # Merge all dataframes
         if dataframes:
             final_df = merge_dataframes(dataframes)
+            final_df = final_df.sort_values('nb_pieces_a_traiter', ascending=False, na_position='last')
             
             # Generate HTML report
             output_file = f"kpi_dashboard_{date.today().strftime('%Y%m%d')}.html"
